@@ -52,17 +52,10 @@ Saving objects to files or byte strings.
 spaCy provides a variety of linguistic annotations to give you insights into a text’s grammatical structure.
 This includes the word types, like the parts of speech, and how the words are related to each other.
 ### Example ###
-import spacy
-
-nlp = spacy.load("en_core_web_sm")
-
-doc = nlp("Apple is looking at buying U.K.")
-
-for token in doc:
-
-    print(token.text, token.pos_, token.dep_)
+("Apple is looking at buying U.K.")
 ### Output ###
 Apple PROPN nsubj
+
 is AUX aux
 
 looking VERB ROOT
@@ -77,14 +70,7 @@ U.K. PROPN compound
 spaCy first tokenizes the text, i.e. segments it into words, punctuation and so on. 
 This is done by applying rules specific to each language.
 ### Example ###
-import spacy
-
-nlp = spacy.load("en_core_web_sm")
-
-doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
-
-for token in doc:
-    print(token.text)
+("Apple is looking at buying U.K.")
 ### Output ###
 Apple
 is
@@ -92,25 +78,11 @@ looking
 at
 buying
 U.K.
-startup
-for
-$
-1
-billion
-
 ### part of speech tags and Dependecies ###
 spaCy can parse and tag a given Doc. This is where the statistical model comes in, which enables spaCy to make a prediction of which tag or label most likely applies in this context.
 ### Example ###
-import spacy
-
-nlp = spacy.load("en_core_web_sm")
-
-doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
-
-for token in doc:
-    print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_,
-            token.shape_, token.is_alpha, token.is_stop)
- ### Output ###
+("Apple is looking at buying U.K.")
+### Output ###
  Apple Apple PROPN NNP nsubj Xxxxx True False
  
 is be AUX VBZ aux xx True True
@@ -126,14 +98,7 @@ U.K. U.K. PROPN NNP compound X.X. False False
 ### Named Entities ###
 A named entity is a “real-world object” that’s assigned a name – for example, a person, a country, a product or a book title.
 ### Example ###
-import spacy
-
-nlp = spacy.load("en_core_web_sm")
-
-doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
-
-for ent in doc.ents:
-    print(ent.text, ent.start_char, ent.end_char, ent.label_)
+("Apple is looking at buying U.K. startup for $1 billion")
 ### Output ###
 Apple 0 5 ORG
 
@@ -156,12 +121,6 @@ unstructured text contains a lot of noise, especially if you use techniques like
 
  simple example — converting é to e.
 ### Example ###
-def remove_accented_chars(text):
-
-    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('utf-8', 'ignore')
-    
-    return text
-
 remove_accented_chars('Sómě Áccěntěd těxt')
 ### Output ###
 'Some Accented text'
@@ -169,32 +128,14 @@ remove_accented_chars('Sómě Áccěntěd těxt')
 ## Removing special characters\symbols ##
 Special characters and symbols are non-alphanumeric characters or even occasionally numeric characters , which add to the extra noise in unstructured text. simple regular expressions can be used to remove them.
 ### Example ###
-
-def remove_special_characters(text, remove_digits=False):
-
-    pattern = r'[^a-zA-z0-9\s]' if not remove_digits else r'[^a-zA-z\s]'
-    
-    text = re.sub(pattern, '', text)
-    
-    return text
-
 remove_special_characters("Well this was fun! What do you think? 123#@!", 
                           remove_digits=True)
  ### Output ###
  Well this was fun What do you think 
-
-Handling contractions
-
 ## Stemming ##
 Word stems are also known as the base form of a word, and we can create new words by attaching affixes to them in a process known as inflection. Consider the word JUMP. You can add affixes to it and form new words like JUMPS, JUMPED, and JUMPING. In this case, the base word JUMP is the word stem.
 The reverse process of obtaining the base form of a word from its inflected form is known as stemming.
 ### Example ###
-def simple_stemmer(text):
-
-    ps = nltk.porter.PorterStemmer()
-    text = ' '.join([ps.stem(word) for word in text.split()])
-    return text
-
 simple_stemmer("My system keeps crashing his crashed yesterday")
 ### Output ###
 'My system keep crash hi crash yesterday'
@@ -203,14 +144,6 @@ simple_stemmer("My system keeps crashing his crashed yesterday")
 Lemmatization is very similar to stemming, where we remove word affixes to get to the base form of a word.
 The root word is always a lexicographically correct word, but the root stem may not be so.
 ### Example ###
-def lemmatize_text(text):
-
-    text = nlp(text)
-    
-    text = ' '.join([word.lemma_ if word.lemma_ != '-PRON-' else word.text for word in text])
-    
-    return text
-
 lemmatize_text("My system keeps crashing! his crashed yesterday")
 ### Output ###
 'My system keep crash ! his crash yesterday'
