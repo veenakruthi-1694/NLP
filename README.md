@@ -234,31 +234,40 @@ Gradient: Gradient of the loss function calculating the difference between input
 Every language is different – and usually full of exceptions and special cases, especially amongst the most common words. Some of these exceptions are shared across languages, while others are entirely specific – usually so specific that they need to be hard-coded.
 
 ## Stop words ##
-stop_words.py:	List of most common words of a language that are often useful to filter out, for example “and” or “I”. Matching tokens will return True for is_stop.
+[stop_words.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/en/stop_words.py) :
+List of most common words of a language that are often useful to filter out, for example “and” or “I”. Matching tokens will return True for is_stop.
 
 ## Tokenizer exceptions ##
-tokenizer_exceptions.py	:Special-case rules for the tokenizer, for example, contractions like “can’t” and abbreviations with punctuation, like “U.K.”.
+[tokenizer_exceptions.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/de/tokenizer_exceptions.py) :
+Special-case rules for the tokenizer, for example, contractions like “can’t” and abbreviations with punctuation, like “U.K.”.
 
 ## Norm exceptions ##
-norm_exceptions.py	:Special-case rules for normalizing tokens to improve the model’s predictions, for example on American vs. British spelling.
+[norm_exceptions.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/norm_exceptions.py)	:
+Special-case rules for normalizing tokens to improve the model’s predictions, for example on American vs. British spelling.
 
 ## Punctuation rules ##
-punctuation.py:	Regular expressions for splitting tokens, e.g. on punctuation or special characters like emoji. Includes rules for prefixes, suffixes and infixes.
+[punctuation.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/punctuation.py) :	
+Regular expressions for splitting tokens, e.g. on punctuation or special characters like emoji. Includes rules for prefixes, suffixes and infixes.
 
 ## Character classes ##
-char_classes.py	:Character classes to be used in regular expressions, for example, latin characters, quotes, hyphens or icons.
+[char_classes.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/char_classes.py)	: 
+Character classes to be used in regular expressions, for example, latin characters, quotes, hyphens or icons.
 
 ## Lexical attributes ##
-lex_attrs.py	:Custom functions for setting lexical attributes on tokens, e.g. like_num, which includes language-specific words like “ten” or “hundred”.
+[lex_attrs.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/en/lex_attrs.py)	:
+Custom functions for setting lexical attributes on tokens, e.g. like_num, which includes language-specific words like “ten” or “hundred”.
 
 ## Syntax iterators ##
-syntax_iterators.py:	Functions that compute views of a Doc object based on its syntax. At the moment, only used for noun chunks.
+[syntax_iterators.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/en/syntax_iterators.py) :	
+Functions that compute views of a Doc object based on its syntax. At the moment, only used for noun chunks.
 
 ## Tag map ##
-tag_map.py	:Dictionary mapping strings in your tag set to Universal Dependencies tags.
+[tag_map.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/en/tag_map.py)	: 
+Dictionary mapping strings in your tag set to Universal Dependencies tags.
 
 ## Morph rules ##
-morph_rules.py	:Exception rules for morphological analysis of irregular words like personal pronouns.
+[morph_rules.py](https://github.com/explosion/spaCy/blob/master/spacy/lang/en/morph_rules.py)	:
+Exception rules for morphological analysis of irregular words like personal pronouns.
 
 ## Lemmatizer ##
 spacy-lookups-data:	Lemmatization rules or a lookup-based lemmatization table to assign base forms, for example “be” for “was”.
