@@ -2,6 +2,46 @@
 ====================================
 
 You need to have [Python](www.itnota.com/install-python-windows-server/) installed.
+
+## Python compile() Function ##
+Compile() :  
+Consider a situation where we have a piece of Python code in a string and we want to compile it so that we can later run it when needed. The compile method does this task. It takes sourcecode as input and returns a code object which is ready to be executed.
+
+### Syntax ###
+compile(source, filename, mode, flags=0, dont_inherit=False, optimize=-1)
+Parameters :
+#### Source ####  
+It can be a normal string, a byte string, or an AST object
+#### Filename #### 
+This is the file from which the code was read. If it wasn’t read from a file, you can give a name yourself.
+
+#### Mode #### 
+Mode can be exec, eval or single.
+a. eval – If the sorce is a single expression.
+b. exec – It can take a block of a code that has Python statements, class and functions and so on.
+c. single – It is used if consists of a single interactive statement
+
+#### Flags (optional) and dont_inherit (optional) #### 
+Default value=0. It takes care that which future statements affect the compilation of the source.
+#### Optimize (optional) #### 
+It tells optimization level of compiler. Default value -1.
+
+### Python code to demonstrate working of compile(). ### 
+  
+#### Creating sample sourcecode to multiply two variables ####
+ x and y
+ 
+srcCode = 'x = 10\n  y = 20\n 
+
+mul = x * y\n 
+
+print("mul =", mul)'
+  
+#### Converting above source code to an executable #### 
+execCode = compile(srcCode, 'mulstring', 'exec') 
+  
+#### Running the executable code. #### 
+exec(execCode)
  
 # spaCy
 spaCy is a free, open-source library for advanced Natural Language Processing (NLP) in Python.
