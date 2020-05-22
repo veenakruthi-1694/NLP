@@ -3,7 +3,37 @@
 
 You need to have [Python](www.itnota.com/install-python-windows-server/) installed.
 
-## Python compile() Function ##
+To Run above import from spaCy(libraries which are used in the program) 
+
+
+Create a folder on your computer to use for your Python programs, such as ~/pythonpractice.
+
+Open up your favorite text editor and create a new file called hello.py containing just the following 2 lines
+
+## ! /usr/bin/python ##
+
+print('Hello, world!')
+
+Note:
+
+If you have both python version 2.6.1 and version 3.0 installed (Very possible if you are using a debian or debian-based(ubuntu, Mint, …) distro, and ran sudo apt-get install python3 to have python3 installed), use
+
+## ! /usr/bin/python3 ##
+
+print('Hello, world!')
+
+save your hello.py program in the ~/pythonpractice folder.
+
+Open up the terminal program. In KDE, open the main menu and select "Run Command..." to open Konsole. In GNOME, open the main menu, open the Applications folder, open the Accessories folder, and select Terminal.
+
+Type cd ~/pythonpractice to change directory to your pythonpractice folder, and hit Enter.
+
+Type chmod a+x hello.py to tell Linux that it is an executable program.
+
+Type ./hello.py to run your program!
+
+In addition, you can also use ln -s hello.py /usr/bin/hello to make a symbolic link hello.py to /usr/bin under the name hello, then run it by simply executing hello.
+
 Compile() :  
 Consider a situation where we have a piece of Python code in a string and we want to compile it so that we can later run it when needed. The compile method does this task. It takes sourcecode as input and returns a code object which is ready to be executed.
 
@@ -26,7 +56,7 @@ Default value=0. It takes care that which future statements affect the compilati
 #### Optimize (optional) #### 
 It tells optimization level of compiler. Default value -1.
 
-### Python code to demonstrate working of compile(). ### 
+###  code to demonstrate working of compile(). ### 
   
 #### Creating sample sourcecode to multiply two variables ####
  x and y
@@ -42,7 +72,7 @@ execCode = compile(srcCode, 'mulstring', 'exec')
   
 #### Running the executable code. #### 
 exec(execCode)
- 
+
 # spaCy
 spaCy is a free, open-source library for advanced Natural Language Processing (NLP) in Python.
 spaCy is designed specifically for production use and helps you build applications that process and “understand” large volumes of text. It can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning.
